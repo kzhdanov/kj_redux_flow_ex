@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Menu from './Menu';
 
 class App extends Component {
 	addCar() {
@@ -14,7 +15,7 @@ class App extends Component {
 	render() {
 	    return (
 	      <div>
-	      	
+	      	<Menu />
 	      	<div>
 	      		<input type="text" ref={(input) => { this.carModel = input }}/>
 	      		<button onClick={this.addCar.bind(this)}>Add car</button>
