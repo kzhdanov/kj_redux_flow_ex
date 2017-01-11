@@ -7,6 +7,9 @@ const initialState = [
 	},
 	{
 		model:"Audi Q6",
+	},
+	{
+		model:"Volvo s60",
 	}
 ];
 
