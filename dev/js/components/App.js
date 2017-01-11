@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Menu from './Menu';
+import { Link } from 'react-router';
 
 class App extends Component {
 	addCar() {
@@ -28,7 +29,9 @@ class App extends Component {
 	      	
 	      	<ul>
 	      		{ this.props.cars.map( (car, index) => 
-	      			<li key={index}>{car.model}</li>	
+	      			<li key={index}>
+	      				<Link to={`/detail/${car.id}`}>{car.model}</Link>
+	      			</li>	
 	      		)}
 	      	</ul>
 
@@ -38,8 +41,9 @@ class App extends Component {
 }
 
 export default connect(
-	state => ({
-		cars: state.cars.filter(car => car.model.includes(state.filterCars))
+	(state, ownProps) => ({
+		cars: state.cars.filter(car => car.model.includes(state.filterCars)),
+		ownProps
 	}),
 
 	dispatch => ({
