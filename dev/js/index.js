@@ -8,6 +8,7 @@ import App from './components/App';
 import About from './components/About';
 import { Router, Route, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
+import Detail from './components/Detail';
 
 import '../scss/style.scss';
 
@@ -19,6 +20,7 @@ ReactDOM.render(
 		<Router history={history}> 
     		<Route path="/" component={App} />
     		<Route path="/about" component={About} />
+    		<Route path="/detail/:id" component={Detail} />
     	</Router>
     </Provider>,
     document.getElementById('root')
