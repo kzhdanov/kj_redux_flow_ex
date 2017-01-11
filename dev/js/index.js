@@ -7,14 +7,16 @@ import allReducers from './reducers';
 import App from './components/App';
 import About from './components/About';
 import { Router, Route, hashHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
 
 import '../scss/style.scss';
 
 const store = createStore(allReducers);
+const history = syncHistoryWithStore(hashHistory, store);
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Router history={hashHistory}> 
+		<Router history={history}> 
     		<Route path="/" component={App} />
     		<Route path="/about" component={About} />
     	</Router>
